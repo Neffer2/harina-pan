@@ -1,6 +1,6 @@
 let width, height, mContext, floor, player;
 let goRight = false, goLeft = false, jump = false;
-let leftBtn, rightBtn, jumpBtn;
+let leftBtn, rightBtn, pauseBtn;
 
 export class Game extends Phaser.Scene {
     constructor ()
@@ -26,33 +26,26 @@ export class Game extends Phaser.Scene {
             goRight = false;
         });
 
-        jumpBtn.on('pointerdown', function(){
-            jump = true;
-        });
-
         this.physics.add.collider(player, floor);
     }
 
     update(){
         if (goLeft){
             player.setVelocityX(-200);
-            player.anims.play('player-run', true);
             player.flipX = false;
         }else if (goRight){
             player.setVelocityX(+200);
-            player.anims.play('player-run', true);
             player.flipX = true;
-        }else if (!jump){
+        }else {
             player.setVelocityX(0);
-            player.anims.play('player-iddle', true);
         }
 
-        if (jump && player.body.touching.down){
-            player.setVelocityY(-600);
-            player.anims.play('player-jump', true);
-        }else {
-            jump = false;
-        }
+        // if (jump && player.body.touching.down){
+        //     player.setVelocityY(-600);
+        //     player.anims.play('player-jump', true);
+        // }else {
+        //     jump = false;
+        // }
 
     }
 
@@ -60,38 +53,16 @@ export class Game extends Phaser.Scene {
         width = this.game.config.width;
         height = this.game.config.height;
         
+        this.add.image(0, 0, 'background').setOrigin(0);
         floor = this.physics.add.staticGroup();
-        floor.create((width/2), (height - 150), 'floor').setScale(.5, .55).setSize(0, 50).setOffset(0, 100);
-        
-        this.add.image((width/2), 0, 'background').setScale(.97).setOrigin(0.5, 0);
+        floor.create(15, (height - 150), '').setSize(width, 20).setOffset(0, 20).setAlpha(0.001);;
 
-        leftBtn = this.add.image(160, height - 90, 'left-btn').setScale(1).setInteractive();
-        rightBtn = this.add.image(leftBtn.x + 200, height - 90, 'right-btn').setScale(1).setInteractive();
-        jumpBtn = this.add.image(rightBtn.x + 200, height - 90, 'jump-btn').setScale(1).setInteractive();
+        leftBtn = this.add.image(160, height - 62, 'left-btn').setScale(1.2).setInteractive();
+        pauseBtn = this.add.image(leftBtn.x + 200, height - 62, 'pause-btn').setScale(1.2).setInteractive();
+        rightBtn = this.add.image(pauseBtn.x + 200, height - 62, 'right-btn').setScale(1.2).setInteractive();
 
         player = this.physics.add.sprite((width/2), height - 400, 'player-iddle', 0).setScale(.3);
         player.setSize(250, 480, false).setOffset(75, 150);
         player.setCollideWorldBounds(true);
-
-        this.anims.create({
-            key: 'player-iddle',
-            frames: this.anims.generateFrameNumbers('player-iddle', { start: 0, end: 6 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'player-run',
-            frames: this.anims.generateFrameNumbers('player-run', { start: 0, end: 26 }),
-            frameRate: 25,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'player-jump',
-            frames: this.anims.generateFrameNumbers('player-jump', { start: 0, end: 0 }),
-            frameRate: 25,
-            repeat: -1
-        });
     }
-}  
+}   
