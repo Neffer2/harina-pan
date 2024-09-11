@@ -7,21 +7,21 @@ export class Preloader extends Phaser.Scene {
     preload ()
     {
         this.load.setPath('public/assets');
-        /* ANIMATIONS */
-        this.load.spritesheet('player-iddle', './animaciones/Player-Idle-SpriteSheet.png', { frameWidth: 450, frameHeight: 651.6 });
-        this.load.spritesheet('player-run', './animaciones/Player-Run-SpriteSheet.png', { frameWidth: 400, frameHeight: 800 });
-        this.load.spritesheet('player-jump', './animaciones/Player-JUMP.png', { frameWidth: 650, frameHeight: 650 });
-        this.load.spritesheet('player-frustated', './animaciones/Player-Frustrared-SpriteSheet.png', { frameWidth: 650, frameHeight: 650 });
-        this.load.spritesheet('player-fall', './animaciones/Player-Fall-SpriteSheet.png', { frameWidth: 650, frameHeight: 650 });
+        /* AREPAS */
+        this.load.image('player', './elems/arepa.png');
+        
         
         /* BUTTONS */
         this.load.image('left-btn', './botones/left.png');
         this.load.image('right-btn', './botones/right.png');
-        this.load.image('jump-btn', './botones/jump.png');
+        this.load.image('pause-btn', './botones/pause.png');
+        this.load.image('resume-btn', './botones/resume.png');
 
         /* ELEMS */
         this.load.image('background', './elems/KITCHEN.png');
         this.load.image('floor', './elems/FloorTwo.png');
+        this.load.image('elem1', './elems/huevo1.png');
+        this.load.image('elem2', './elems/huevo2.png');
     }
 
     create ()
