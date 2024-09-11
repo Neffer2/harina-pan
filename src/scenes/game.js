@@ -47,7 +47,7 @@ export class Game extends Phaser.Scene {
 
         // Elems Fall
         setInterval(() => {
-            let elem = this.physics.add.sprite(Phaser.Math.Between(20, (width - 20)), 0, elemsKeys[this.getRandomNumber(0, elemsKeys.length)]).setScale(.6);
+            let elem = this.physics.add.spritehitElem(Phaser.Math.Between(20, (width - 20)), 0, elemsKeys[this.getRandomNumber(0, elemsKeys.length)]).setScale(.6);
             // this.physics.world.on('worldstep', () => {
             //     elem.setAngularVelocity(
             //         Phaser.Math.RadToDeg(elem.body.velocity.y / 225)   
