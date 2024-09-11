@@ -9,6 +9,7 @@ export class Preloader extends Phaser.Scene {
         this.load.setPath('public/assets');
         /* AREPAS */
         this.load.image('player', './elems/arepa.png');
+        /* ANIMATIONS */
         
         
         /* BUTTONS */
