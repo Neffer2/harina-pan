@@ -115,7 +115,7 @@ export class Game extends Phaser.Scene {
         player.setCollideWorldBounds(true);
 
         this.add.image(width - 160, 100, 'score').setDepth(1);
-        scoreText = this.add.text(width - 100, 80, '0', {font: '40px primary-font', fill: '#fff'}).setDepth(1);
+        scoreText = this.add.text(width - 98, 80, '0', {font: '40px primary-font', fill: '#fff'}).setDepth(1);
 
         arepa = this.sys.settings.data.arepa;
     }
