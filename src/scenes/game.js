@@ -71,7 +71,7 @@ export class Game extends Phaser.Scene {
         elemsInterval = setInterval(() => {
             let elem = this.physics.add.sprite(Phaser.Math.Between(20, (width - 20)), 0, elemsKeys[this.getRandomNumber(0, elemsKeys.length)]).setScale(.6);
             elemsFall.push(elem);
-        }, 900);
+        }, 600);
 
         // Time
         setTimeout(() => {
