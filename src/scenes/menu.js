@@ -1,4 +1,4 @@
-let arepaHuevo, arepaCarne, arepaMq, mContext;
+let arepaHuevo, arepaCarne, arepaMq, startBtn, mContext, tipoArepa;
 
 export class Menu extends Phaser.Scene {
     constructor ()
@@ -12,7 +12,7 @@ export class Menu extends Phaser.Scene {
         arepaHuevo.on('pointerdown', function(){
             arepaHuevo.setScale(.3);
             setTimeout(() => {
-                mContext.scene.start('Game', {arepa: 'arepa-huevo'});
+                tipoArepa = 'arepa-huevo';
             }, 350);
         });
 
@@ -23,7 +23,7 @@ export class Menu extends Phaser.Scene {
         arepaCarne.on('pointerdown', function(){
             arepaCarne.setScale(.3);
             setTimeout(() => {
-                mContext.scene.start('Game', {arepa: 'arepa-carne'});
+                tipoArepa = 'arepa-carne';
             }, 350);
         });
 
@@ -34,7 +34,7 @@ export class Menu extends Phaser.Scene {
         arepaMq.on('pointerdown', function(){
             arepaMq.setScale(.3);
             setTimeout(() => {
-                mContext.scene.start('Game', {arepa: 'arepa-mq'});
+                tipoArepa = 'arepa-carne';
             }, 350);
         });
 
@@ -42,7 +42,16 @@ export class Menu extends Phaser.Scene {
             arepaMq.setScale(.5); 
         });
 
+        startBtn.on('pointerdown', function(){
+            startBtn.setScale(.65);
+            setTimeout(() => {
+                mContext.scene.start('Game', {arepa: tipoArepa});
+            }, 350);
+        });
 
+        startBtn.on('pointerout', () => {            
+            startBtn.setScale(.85); 
+        });
     }
 
     init(){
@@ -52,5 +61,7 @@ export class Menu extends Phaser.Scene {
         arepaHuevo = this.add.image(((this.game.config.width)/2) + 100, (this.game.config.height) - 380, 'arepa-huevo').setScale(.5).setInteractive();
         arepaCarne = this.add.image(((this.game.config.width)/2) - 90, (this.game.config.height) - 380, 'arepa-carne').setScale(.5).setInteractive();
         arepaMq = this.add.image(((this.game.config.width)/2), (this.game.config.height) - 540, 'arepa-mq').setScale(.5).setInteractive();
+
+        startBtn = this.add.image(((this.game.config.width)/2), (this.game.config.height) - 180, 'start-btn').setScale(.85).setInteractive();
     }
 } 

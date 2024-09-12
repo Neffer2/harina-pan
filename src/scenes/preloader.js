@@ -11,9 +11,7 @@ export class Preloader extends Phaser.Scene {
         this.load.image('player', './elems/arepa.png');
         this.load.image('arepa-huevo', './elems/arepa-huevo.png');
         this.load.image('arepa-carne', './elems/arepa-carne.png');
-        this.load.image('arepa-mq', './elems/arepa-mq.png');
-        /* ANIMATIONS */
-        
+        this.load.image('arepa-mq', './elems/arepa-mq.png');        
         
         /* BUTTONS */
         this.load.image('left-btn', './botones/left.png');
@@ -21,6 +19,9 @@ export class Preloader extends Phaser.Scene {
         this.load.image('pause-btn', './botones/pause.png');
         this.load.image('resume-btn', './botones/resume.png');
         this.load.image('score', './botones/score.png');
+        this.load.image('start-btn', './botones/start.png');
+        this.load.image('popUp', './botones/popUp.png');        
+        this.load.image('volver', './botones/volver.png');        
 
         /* ELEMS */
         this.load.image('background', './elems/KITCHEN.png');
@@ -34,7 +35,7 @@ export class Preloader extends Phaser.Scene {
         this.load.image('camaron1', './elems/camaron1.png');
         this.load.image('carne', './elems/carne.png');
         this.load.image('carne1', './elems/carne1.png');
-        
+        this.load.image('logo-pan', './elems/pan.png');        
     }
 
     create ()
