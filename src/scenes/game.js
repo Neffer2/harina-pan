@@ -141,7 +141,7 @@ export class Game extends Phaser.Scene {
         volver.on('pointerdown', function(){
             volver.setScale(1.3);
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.reload();
             }, 350);
         });
 
