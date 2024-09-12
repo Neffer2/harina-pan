@@ -135,7 +135,7 @@ export class Game extends Phaser.Scene {
         clearInterval(elemsInterval);
         let popUp = this.add.image((width/2), (height/2), 'popUp').setScale(1.5).setDepth(1);
         let title = this.add.text((width/2) - 230, (height/2) - 150, 'GANASTE', {font: '180px primary-font', fill: '#fff'}).setDepth(2);
-        let pts = this.add.text((width/2) - 70, (height/2) + 20, '50 puntos', {font: '50px primary-font', fill: '#fff'}).setDepth(2);
+        let pts = this.add.text((width/2) - 70, (height/2) + 20, `${player.score} puntos`, {font: '50px primary-font', fill: '#fff'}).setDepth(2);
         let volver = this.add.image((width/2) + 10, (height/2) + 220, 'volver').setScale(1.5).setInteractive().setDepth(2);
 
         volver.on('pointerdown', function(){
