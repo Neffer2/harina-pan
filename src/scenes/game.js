@@ -71,7 +71,7 @@ export class Game extends Phaser.Scene {
         elemsInterval = setInterval(() => {
             let elem = this.physics.add.sprite(Phaser.Math.Between(20, (width - 20)), 0, elemsKeys[this.getRandomNumber(0, elemsKeys.length)]).setScale(.6);
             elemsFall.push(elem);
-        }, 600);
+        }, 900);
 
         // Time
         setTimeout(() => {
@@ -115,7 +115,7 @@ export class Game extends Phaser.Scene {
         player.setCollideWorldBounds(true);
 
         this.add.image(width - 160, 100, 'score').setDepth(1);
-        scoreText = this.add.text(width - 100, 80, '0', {fontSize: '40px', fill: '#fff'}).setDepth(1);
+        scoreText = this.add.text(width - 100, 80, '0', {font: '40px primary-font', fill: '#fff'}).setDepth(1);
 
         arepa = this.sys.settings.data.arepa;
     }
