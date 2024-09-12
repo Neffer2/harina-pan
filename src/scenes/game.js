@@ -76,7 +76,7 @@ export class Game extends Phaser.Scene {
         // Time
         setTimeout(() => {
             this.popUp();
-        }, 1000);
+        }, 60000);
 
         // Colliders
         this.physics.add.collider(player, floor);
