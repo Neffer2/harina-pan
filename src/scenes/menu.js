@@ -34,7 +34,7 @@ export class Menu extends Phaser.Scene {
         arepaMq.on('pointerdown', function(){
             arepaMq.setScale(.3);
             setTimeout(() => {
-                tipoArepa = 'arepa-carne';
+                tipoArepa = 'arepa-mq';
             }, 350);
         });
 
