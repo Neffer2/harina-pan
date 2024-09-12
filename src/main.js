@@ -1,5 +1,6 @@
 import { Boot } from './scenes/boot.js';
 import { Preloader } from './scenes/preloader.js';
+import { Menu } from './scenes/menu.js';
 import { Game } from './scenes/game.js';
 import { GameOver } from './scenes/gameover.js';
 
@@ -12,12 +13,12 @@ const config = {
         mode: Phaser.Scale.FIT,
         fullscreenTarget: 'game-container',
     },
-    scene: [Boot, Preloader, Game, GameOver],
+    scene: [Boot, Preloader, Menu, Game, GameOver],
     physics: {
         default: 'arcade',
         arcade: {
             gravity: { y: 900 },
-            debug: true
+            // debug: true
         }
     },
     backgroundColor: '#fff'
