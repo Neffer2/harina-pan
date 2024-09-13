@@ -56,7 +56,7 @@ export class Menu extends Phaser.Scene {
 
     init(){
         this.add.image(0, 0, 'background').setOrigin(0);
-        this.add.image((this.game.config.width)/2, (this.game.config.height)/2, 'presentaciones');
+        this.add.image((this.game.config.width)/2, (this.game.config.height)/2, 'presentaciones2');
 
         arepaHuevo = this.add.image(((this.game.config.width)/2) + 100, (this.game.config.height) - 380, 'arepa-huevo').setScale(.5).setInteractive();
         arepaCarne = this.add.image(((this.game.config.width)/2) - 90, (this.game.config.height) - 380, 'arepa-carne').setScale(.5).setInteractive();
