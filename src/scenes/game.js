@@ -125,7 +125,7 @@ export class Game extends Phaser.Scene {
     }
 
     hitElem(player, elem){
-        player.score += 1;
+        if (elemsInterval){player.score += 1;}
         scoreText.setText(player.score);
         elemsFall.splice(elemsFall.indexOf(elem), 1);
         elem.destroy();
@@ -133,8 +133,14 @@ export class Game extends Phaser.Scene {
 
     popUp(){
         clearInterval(elemsInterval);
+        elemsInterval = null;
+
         let popUp = this.add.image((width/2), (height/2), 'popUp').setScale(1.5).setDepth(1);
-        let title = this.add.text((width/2) - 230, (height/2) - 150, 'GANASTE', {font: '180px primary-font', fill: '#fff'}).setDepth(2);
+        if (player.score > 19){
+            let title = this.add.text((width/2) - 230, (height/2) - 150, 'GANASTE', {font: '180px primary-font', fill: '#fff'}).setDepth(2);
+        }else {
+            let title = this.add.text((width/2) - 150, (height/2) - 195, 'INTENTALO\nDE NUEVO', {font: '100px primary-font', fill: '#fff', align: 'center'}).setDepth(2);
+        }
         let pts = this.add.text((width/2) - 70, (height/2) + 20, `${player.score} puntos`, {font: '50px primary-font', fill: '#fff'}).setDepth(2);
         let volver = this.add.image((width/2) + 10, (height/2) + 220, 'volver').setScale(1.5).setInteractive().setDepth(2);
 
